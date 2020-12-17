@@ -1,0 +1,22 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+positions:
+  filename: D:/suraj/positions.yaml
+
+clients:
+  - url: http://127.0.0.1:3100/loki/api/v1/push
+
+scrape_configs:
+
+- job_name: my-log-shipper
+  static_configs:
+  - targets:
+      - localhost
+    labels:
+      job: my-logging-monitoring-example
+      name: my-logging-monitoring
+      app: my-logging
+      service: my-logging-svc
+      agent: promtail
+      __path__: D:/suraj/logs/my-file.log
