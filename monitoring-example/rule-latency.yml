@@ -1,0 +1,10 @@
+groups:
+  - name: LatencyRequest
+    rules:
+      - alert: LatencyRequest
+        expr:  rate(http_server_requests_seconds_sum{uri!~".*actuator.*"}[5m]) / rate(http_server_requests_seconds_count{uri!~".*actuator.*"}[5m]) > 10
+        for: 1m
+        labels:
+          severity: high
+        annotations:
+          summary: Application response took more than 10 Sec

@@ -1,0 +1,11 @@
+route:
+  receiver: emailer
+receivers:
+  - name: emailer
+    email_configs:
+      - to: saurabhthemagicman@gmail.com
+        from: saurabhthemagicman@gmail.com
+        smarthost: smtp.gmail.com:587
+        auth_username: saurabhthemagicman@gmail.com
+        auth_identity: saurabhthemagicman@gmail.com
+        auth_password: matfwfakwuccunkz
